@@ -3,10 +3,12 @@ var app = express();
 
 var data = require('./data.js');
 
+//Get data for only a single character
+//EX - /times/charlie
 app.get('/times/:character', function(req, res){
   var character = req.params.character;
 
-  if(!data[character])
+  if(!data[character]) //If that character doesn't exist
   {
     res.send("error on char");
   } else {
@@ -15,6 +17,7 @@ app.get('/times/:character', function(req, res){
 
 });
 
+//Get data for ALL characters - used for initializing iOS app
 app.get('/charactersAndTimes', function(req, res){
   res.send(data);
 });
