@@ -1,7 +1,9 @@
 var express = require('express');
 var app = express();
 
-var data = require('./data.js');
+var data = require('./data.js'); //External data file
+
+var port = 3000; //Port to listen on
 
 //Get data for only a single character
 //EX - /times/charlie
@@ -22,6 +24,7 @@ app.get('/charactersAndTimes', function(req, res){
   res.send(data);
 });
 
-app.listen(3000, function () {
+//Listener for incoming requests
+app.listen(port, function () {
   console.log("running");
 });
