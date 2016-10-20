@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+#CocoaPods
+iOS/Pods/
+
 # Runtime data
 pids
 *.pid
