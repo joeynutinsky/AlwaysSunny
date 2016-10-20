@@ -1,25 +1,182 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2338c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ifa-bU-bdy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Face View Controller-->
+        <scene sceneID="Ftk-U4-7Hb">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ifa-bU-bdy" customClass="FaceViewController" customModule="Game" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="mFI-fM-p18"/>
+                        <viewControllerLayoutGuide type="bottom" id="85q-ih-Yfq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="E8e-NG-u6r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HjY-Dj-OzX" customClass="AddFace" customModule="Game" customModuleProvider="target">
+                                <frame key="frameInset" minY="603" width="95" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="CPG-SL-BSl" appends="YES" id="CIV-QH-DN9"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H4R-rU-tWX" customClass="YellowButton" customModule="Game" customModuleProvider="target">
+                                <frame key="frameInset" minX="67" minY="498" width="240" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0Ua-OQ-vGg" appends="YES" id="iUt-RM-n0q"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrM-Fc-Xlu" customClass="StatsButton" customModule="Game" customModuleProvider="target">
+                                <frame key="frameInset" minX="322" minY="20" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="N3N-XD-xbv" appends="YES" id="6rP-hA-UKV"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="HjY-Dj-OzX" id="UF2-gm-edY"/>
+                        <outlet property="yellowBtn" destination="H4R-rU-tWX" id="qlE-FX-STU"/>
+                        <segue destination="lYv-Kw-Qam" kind="showDetail" identifier="showList" action="showViewController:sender:" id="4QH-Ek-1jC"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3a-3T-uA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer scale="4" id="q8r-ha-isb"/>
+                <tapGestureRecognizer delaysTouchesEnded="NO" id="0Ua-OQ-vGg">
+                    <connections>
+                        <action selector="buttonPress:" destination="ifa-bU-bdy" id="tXP-0h-Cfo"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="gd4-cB-Gz1"/>
+                <tapGestureRecognizer delaysTouchesEnded="NO" id="CPG-SL-BSl">
+                    <connections>
+                        <action selector="addFace:" destination="ifa-bU-bdy" id="MiM-EP-Pey"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer delaysTouchesEnded="NO" id="N3N-XD-xbv">
+                    <connections>
+                        <action selector="showList:" destination="ifa-bU-bdy" id="eAB-Wi-uCv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-543.20000000000005" y="1910.1949025487258"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="4RA-RB-aBm">
+            <objects>
+                <viewController id="Jww-fM-89d" customClass="CameraViewController" customModule="Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uxO-8x-EAe"/>
+                        <viewControllerLayoutGuide type="bottom" id="vER-Lk-OR9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iN9-ox-rYz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="da0-Ti-fI8">
+                                <frame key="frameInset" minY="113" width="382" height="316"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-ts-bWl">
+                                <frame key="frameInset" minX="149" minY="527" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="Jww-fM-89d" eventType="touchUpInside" id="qYQ-Ap-AmS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="da0-Ti-fI8" id="PoX-G0-Z2s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Sz-aj-SDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751.20000000000005" y="2506.5967016491754"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="z3M-47-RVC">
+            <objects>
+                <viewController id="lYv-Kw-Qam" customClass="ListViewController" customModule="Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IUO-VE-p7a"/>
+                        <viewControllerLayoutGuide type="bottom" id="xsg-cg-CyR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ta2-nO-0hK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnH-Y1-hoH">
+                                <frame key="frameInset" minY="116" width="375" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="87"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Faces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etF-fq-N3D">
+                                <frame key="frameInset" minX="133" minY="257" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYW-nq-i8Z">
+                                <frame key="frameInset" minX="161" minY="381" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt; BACK"/>
+                                <connections>
+                                    <action selector="backToFaces:" destination="lYv-Kw-Qam" eventType="touchUpInside" id="3Je-wO-MfK"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6Z-2q-5Ab">
+                                <frame key="frameInset" minX="127" minY="488" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xr-Gy-nAw">
+                                <frame key="frameInset" minX="163" minY="462" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2y-tn-wj3">
+                                <frame key="frameInset" minX="293" minY="421" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PHOTO"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="lYv-Kw-Qam" eventType="touchUpInside" id="zXz-Mo-skt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="displayFace" destination="S6Z-2q-5Ab" id="iUa-FU-5Kw"/>
+                        <outlet property="faceCount" destination="GnH-Y1-hoH" id="bst-qQ-l3Z"/>
+                        <segue destination="d74-Ta-E5B" kind="unwind" identifier="backToFaces" unwindAction="backToFacesWithSegue:" id="Kf0-Rx-y92"/>
+                        <segue destination="Jww-fM-89d" kind="show" identifier="showCamera" id="E2q-FS-rLk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLR-4S-TNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="d74-Ta-E5B" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="728.79999999999995" y="1333.5832083958021"/>
         </scene>
     </scenes>
 </document>
